@@ -1,0 +1,58 @@
+{
+	"info": {
+		"_postman_id": "cc367dc0-7a45-4a8d-aaeb-40e52370bbed",
+		"name": "testing_file_upload_Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22804049",
+		"_collection_link": "https://blue-firefly-918739.postman.co/workspace/testing_file_upload_workspace~8784af67-66fc-4392-a937-ab2ea9526da2/collection/22804049-cc367dc0-7a45-4a8d-aaeb-40e52370bbed?action=share&source=collection_link&creator=22804049"
+	},
+	"item": [
+		{
+			"name": "upload_file_request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", () => pm.response.to.have.status(200));\r",
+							"\r",
+							"pm.test(\"File uploaded\", () => {\r",
+							"    let response = pm.response.json();\r",
+							"    console.log(response);\r",
+							"    console.log(pm.response.json());\r",
+							"})"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "usd_eur_spec.md"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/upload",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"upload"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
